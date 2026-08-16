@@ -107,6 +107,19 @@ Specifically:
 
 If you are hiring for unattended automation, that list is the argument. I am happy to walk through any of these defects and their fixes in detail.
 
+### Code in this repo
+
+`segments.py` is the background-footage selection logic, extracted whole and
+with the media dependencies removed, plus `test_segments.py` covering it.
+
+It is here because it is the clearest example of the thing above: the bug
+was never in the encoding, it was in the arithmetic, so the arithmetic is
+separated from ffmpeg and tested in milliseconds without touching a video
+file. It also took two fixes, and the first was declared done while the bug
+was still shipping, because the test suite pinned the half that had been
+fixed and never asserted the half that had not. The docstring is honest
+about that, and about what the fix cost.
+
 ## Stack
 
 Python (standard library for all feed I/O, no scraping framework), Ollama running gemma locally, edge TTS with word-boundary timings, ffmpeg and ffprobe for rendering and probing, ASS subtitles generated per word, yt-dlp for background footage ingest, SQLite as the outcome ledger, Windows Task Scheduler with PowerShell installers.
