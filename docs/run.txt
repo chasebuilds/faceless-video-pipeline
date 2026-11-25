@@ -1,0 +1,39 @@
+> python -m unittest -v
+test_a_clean_clip_is_preferred_over_a_longer_spliced_one (test_segments.TestAvoidingTheClipsOwnCuts.test_a_clean_clip_is_preferred_over_a_longer_spliced_one) ... ok
+test_choosing_on_duration_alone_would_have_picked_the_wrong_clip (test_segments.TestAvoidingTheClipsOwnCuts.test_choosing_on_duration_alone_would_have_picked_the_wrong_clip)
+The measured regression: the clip that was longest OVERALL was ... ok
+test_the_walk_does_not_cross_a_cut_when_it_does_not_have_to (test_segments.TestAvoidingTheClipsOwnCuts.test_the_walk_does_not_cross_a_cut_when_it_does_not_have_to) ... ok
+test_enough_segments_to_outlast_the_narration (test_segments.TestBounds.test_enough_segments_to_outlast_the_narration) ... ok
+test_footage_shorter_than_the_narration_still_returns_a_plan (test_segments.TestBounds.test_footage_shorter_than_the_narration_still_returns_a_plan)
+It wraps rather than raising: a short clip is a quality problem, ... ok
+test_no_clips_is_an_error_not_an_empty_render (test_segments.TestBounds.test_no_clips_is_an_error_not_an_empty_render) ... ok
+test_no_segment_starts_past_the_end_of_its_clip (test_segments.TestBounds.test_no_segment_starts_past_the_end_of_its_clip) ... ok
+test_different_seeds_can_differ (test_segments.TestDeterminism.test_different_seeds_can_differ) ... ok
+test_the_same_seed_gives_the_same_segments (test_segments.TestDeterminism.test_the_same_seed_gives_the_same_segments) ... ok
+test_a_shuffled_walk_is_detected_as_broken (test_segments.TestForwardWalk.test_a_shuffled_walk_is_detected_as_broken)
+The guard has to be able to FAIL, or it proves nothing. ... ok
+test_contiguity_holds_across_many_seeds (test_segments.TestForwardWalk.test_contiguity_holds_across_many_seeds) ... ok
+test_segments_run_consecutively (test_segments.TestForwardWalk.test_segments_run_consecutively) ... ok
+test_every_segment_comes_from_a_single_clip (test_segments.TestOneClipPerVideo.test_every_segment_comes_from_a_single_clip) ... ok
+test_it_holds_across_many_seeds (test_segments.TestOneClipPerVideo.test_it_holds_across_many_seeds) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.003s
+
+OK
+[exit 0, 0.2 s]
+
+> python demo_segments.py
+narration 31 s -> 5 segments of 8 s, seed 7
+  Clip('rooftops_long', 95.0s, 4 cuts)   longest clean run  18.0- 39.0 s (21.0 s)
+  Clip('alley_run', 60.0s, 2 cuts)       longest clean run   6.0- 58.0 s (52.0 s)
+  Clip('stairwell', 44.0s, 0 cuts)       longest clean run   0.0- 44.0 s (44.0 s)
+picked stairwell:
+  stairwell   3.79 ->  11.79 s
+  stairwell  11.79 ->  19.79 s
+  stairwell  19.79 ->  27.79 s
+  stairwell  27.79 ->  35.79 s
+  stairwell  35.79 ->  43.79 s
+contiguous: True   segments crossing a hard cut: 0
+same seed gives the same footage (preview == final render): True
+[exit 0, 0.1 s]

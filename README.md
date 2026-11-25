@@ -6,6 +6,26 @@ An unattended short-form video pipeline: it scouts source material, writes the s
 
 It runs on a schedule on one Windows desktop with a 12 GB consumer GPU. Nothing in it calls a paid inference API on the critical path. It has produced real videos that are live on a channel, and four different content types share the same pipeline.
 
+## See it run
+
+The full pipeline needs a GPU, ffmpeg, a local model and an authorized channel, and it stays private, so there is no browser demo and nothing here renders or uploads. What runs is the part in this repo: the footage selection logic and its tests. Below, the 14 tests, then [`demo_segments.py`](demo_segments.py) picking footage for a 31-second narration from three made-up clips described only by length and hard-cut times. Captured from the terminal unedited ([full transcript](docs/run.txt)).
+
+![Terminal: 14 unit tests passing, then the demo picking the cut-free clip, five contiguous segments, zero cuts crossed, same seed same footage](docs/run.png)
+
+The longest clip (`rooftops_long`, 95 s) is not chosen, because its longest stretch without a hard cut is only 21 s. The selection ranks on cut-free stretch, not raw length, and the segments walk forward through one clip.
+
+### Run it yourself in 3 commands
+
+Python 3.11 or newer, no packages to install:
+
+```
+git clone https://github.com/chasebuilds/faceless-video-pipeline && cd faceless-video-pipeline
+python -m unittest -v
+python demo_segments.py
+```
+
+Pass a number (`python demo_segments.py 3`) to try another seed.
+
 ## Architecture
 
 ```
