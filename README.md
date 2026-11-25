@@ -145,3 +145,11 @@ about that, and about what the fix cost.
 ## Stack
 
 Python (standard library for all feed I/O, no scraping framework), Ollama running gemma locally, edge TTS with word-boundary timings, ffmpeg and ffprobe for rendering and probing, ASS subtitles generated per word, yt-dlp for background footage ingest, SQLite as the outcome ledger, Windows Task Scheduler with PowerShell installers.
+
+## More from Chase Builds
+
+- **[self-healing-agents](https://github.com/chasebuilds/self-healing-agents)**: Agents that check whether their own output still reaches a person.
+- **[appointment-booking-api](https://github.com/chasebuilds/appointment-booking-api)**: Online booking that never double-books and gets time zones right. ([live demo](https://chasebuilds.github.io/appointment-booking-api/))
+- **[sheets-automations](https://github.com/chasebuilds/sheets-automations)**: Google Sheets that send summaries, invoices, overdue reminders and low-stock alerts on their own. ([live demo](https://chasebuilds.github.io/sheets-automations/))
+
+[All projects, sorted by industry](https://github.com/chasebuilds) · [chasebuilds.github.io](https://chasebuilds.github.io)
