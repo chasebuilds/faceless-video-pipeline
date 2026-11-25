@@ -1,5 +1,7 @@
 # faceless-video-pipeline
 
+[![CI](https://github.com/chasebuilds/faceless-video-pipeline/actions/workflows/ci.yml/badge.svg)](https://github.com/chasebuilds/faceless-video-pipeline/actions/workflows/ci.yml) ![Python](https://img.shields.io/badge/python-3.11%20to%203.13-blue) ![License: MIT](https://img.shields.io/badge/license-MIT-green)
+
 An unattended short-form video pipeline: it scouts source material, writes the script on a local LLM, renders with ffmpeg, watches its own output back, throws away what fails, and uploads the survivors as private drafts for a human to publish.
 
 It runs on a schedule on one Windows desktop with a 12 GB consumer GPU. Nothing in it calls a paid inference API on the critical path. It has produced real videos that are live on a channel, and four different content types share the same pipeline.
